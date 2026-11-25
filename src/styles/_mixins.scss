@@ -86,7 +86,7 @@ $breakpoints: (
   }
 }
 
-// Coloca un elemento en la rejilla: columnas(inicio, ancho)
+// Colocacion en rejilla 
 @mixin columnas($inicio, $ancho) {
   grid-column: #{$inicio} / span #{$ancho};
 }

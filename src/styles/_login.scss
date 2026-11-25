@@ -16,7 +16,7 @@
     overflow: hidden;
     isolation: isolate;
 
-    // Velo: degradado de abajo (90%) a arriba (5%)
+    // Velo de degradado sobre la foto
     &::after {
       content: "";
       position: absolute;

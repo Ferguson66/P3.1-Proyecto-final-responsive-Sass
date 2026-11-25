@@ -47,7 +47,7 @@ $velo-1: rgba($foto-verde-profundo, 0.05);
 $velo-2: rgba($foto-verde-profundo, 0.1);
 $velo-3: rgba($foto-verde-profundo, 0.9);
 
-// Mapa de acabados (se usa para generar las clases de los puntos de color)
+// Mapa de acabados 
 $acabados: (
   "roble-claro": $madera-roble-claro,
   "roble-oscuro": $madera-roble-oscuro,
@@ -86,7 +86,7 @@ $rejilla-canal: 20px;
 $movil-columnas: 4;
 $movil-canal: 16px;
 $movil-margen: 24px;
-$contenedor-ancho: 1100px; // margen lateral de escritorio ≈ 170px a 1440px
+$contenedor-ancho: 1100px;
 $radio-suave: 4px;
 $radio-editorial: 150px;
 $espacio-interior-boton: 22px;

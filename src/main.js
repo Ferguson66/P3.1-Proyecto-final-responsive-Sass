@@ -1,7 +1,7 @@
-// Punto de entrada: Vite compila el SCSS automáticamente
+//Compilacion automatica
 import "./styles/main.scss";
 
-// Botón "Volver arriba" del footer con desplazamiento suave
+// Botom de subir al inicio
 document.querySelectorAll("[data-subir]").forEach((enlace) => {
   enlace.addEventListener("click", (evento) => {
     evento.preventDefault();
