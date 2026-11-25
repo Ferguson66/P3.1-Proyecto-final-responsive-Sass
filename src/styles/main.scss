@@ -1,2 +1,7 @@
-@use "variables";
-@use "globals";
+@use "globals" as *;
+@use "layout";
+@use "header";
+@use "footer";
+@use "components";
+@use "landing";
+@use "login";

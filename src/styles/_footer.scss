@@ -1,0 +1,126 @@
+@use "globals" as *;
+
+// ===== Footer =====
+.pie {
+  padding-block: $esp-xl $esp-m;
+  background-color: $color-fondo-oscuro;
+  color: $color-texto-inverso;
+
+  &__superior {
+    @include rejilla;
+    align-items: start;
+    row-gap: $esp-m;
+    padding-bottom: $esp-l;
+    border-bottom: $borde-divisor solid $color-borde-inverso;
+
+    h2 {
+      @include columnas(1, 6);
+      @include titular($fs-36, $fs-32, $fs-29);
+    }
+  }
+
+  &__cta {
+    @include columnas(7, 6);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $esp-m;
+    padding-left: 4.5%;
+
+    p {
+      font-size: $fs-12;
+      color: $color-texto-inverso-suave;
+    }
+
+    .boton {
+      width: min(100%, 380px);
+    }
+  }
+
+  &__medio {
+    @include rejilla;
+    align-items: start;
+    row-gap: $esp-m;
+    padding-block: $esp-l;
+
+    .logo {
+      @include columnas(1, 6);
+    }
+
+    .logo__nombre {
+      font-size: $fs-29;
+    }
+  }
+
+  &__lema {
+    margin-top: $esp-xs;
+    font-size: $fs-12;
+    color: $color-texto-inverso-secundario;
+  }
+
+  &__contacto {
+    @include columnas(7, 3);
+    font-size: $fs-12;
+
+    span {
+      display: block;
+      margin-bottom: $esp-xs;
+      font-size: $fs-10;
+      font-weight: $peso-medium;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+  }
+
+  &__enlaces {
+    @include columnas(10, 3);
+    display: flex;
+    flex-direction: column;
+    gap: $esp-s;
+    font-size: $fs-12;
+  }
+
+  &__legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: $esp-xs;
+    font-size: $fs-10;
+    color: $color-texto-inverso-secundario;
+  }
+
+  a:hover {
+    color: $tierra-melocoton;
+  }
+
+  @include respond-to("hasta-medium") {
+    &__superior h2,
+    &__cta,
+    &__medio .logo {
+      grid-column: 1 / -1;
+    }
+
+    &__cta {
+      padding-left: 0;
+    }
+
+    &__contacto {
+      @include columnas(1, 6);
+    }
+
+    &__enlaces {
+      @include columnas(7, 6);
+    }
+  }
+
+  @include respond-to("small") {
+    &__contacto {
+      @include columnas(1, 2);
+    }
+
+    &__enlaces {
+      @include columnas(3, 2);
+    }
+  }
+}
+

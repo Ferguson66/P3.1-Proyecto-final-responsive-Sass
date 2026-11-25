@@ -1,0 +1,196 @@
+@use "globals" as *;
+
+// ===== Hero =====
+.hero {
+  @include rejilla;
+  align-items: center;
+  padding-block: $esp-l $esp-xl;
+
+  &__texto {
+    @include columnas(1, 6);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $esp-m;
+  }
+
+  h1 {
+    @include titular($fs-60, $fs-52, $fs-40);
+  }
+
+  &__descripcion {
+    max-width: 38ch;
+    font-size: $fs-14;
+    color: $color-texto-secundario;
+  }
+
+  &__nota {
+    font-size: $fs-10;
+    color: $color-texto-secundario;
+  }
+
+  &__figura {
+    @include columnas(7, 6);
+    position: relative;
+
+    img {
+      width: 100%;
+      aspect-ratio: 589 / 412;
+      object-fit: cover;
+      border-radius: $radio-editorial $radio-suave $radio-suave $radio-suave; // arco superior
+    }
+  }
+
+  &__pie {
+    position: absolute;
+    left: $esp-m;
+    bottom: $esp-m;
+    padding: $esp-s $esp-m;
+    min-width: 54%;
+    background-color: $color-superficie-etiqueta;
+    font-size: $fs-12;
+
+    strong {
+      display: block;
+      font-weight: $peso-medium;
+    }
+
+    small {
+      font-size: $fs-10;
+      color: $color-texto-secundario;
+    }
+  }
+
+  @include respond-to("hasta-medium") {
+    row-gap: $esp-l;
+
+    &__texto,
+    &__figura {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+
+// ===== Ventajas =====
+.ventajas {
+  background-color: $color-fondo-ventajas;
+
+  &__lista {
+    @include rejilla;
+    padding-block: $esp-l;
+
+    @include respond-to("small") {
+      row-gap: $esp-m;
+    }
+  }
+
+  &__item {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: $esp-m;
+
+    @include respond-to("desde-medium") {
+      &:nth-child(1) {
+        @include columnas(1, 4);
+      }
+      &:nth-child(2) {
+        @include columnas(5, 4);
+      }
+      &:nth-child(3) {
+        @include columnas(9, 4);
+      }
+    }
+  }
+
+  &__numero {
+    font-size: $fs-10;
+    color: $color-texto-acento;
+    padding-top: 4px;
+  }
+
+  h3 {
+    font-size: $fs-14;
+    font-weight: $peso-medium;
+  }
+
+  p {
+    font-size: $fs-11;
+    color: $color-texto-secundario;
+  }
+}
+
+
+// ===== Productos =====
+.productos {
+  padding-block: $esp-xl $esp-xxl;
+
+  &__cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: $esp-xs $esp-m;
+    margin-bottom: $esp-m;
+
+    h2 {
+      @include titular($fs-36, $fs-36, $fs-29);
+      margin-top: $esp-xs;
+    }
+
+    p {
+      font-size: $fs-11;
+      color: $color-texto-secundario;
+    }
+
+    @include respond-to("small") {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: $esp-m;
+    }
+  }
+
+  &__lista {
+    @include rejilla;
+    row-gap: $esp-l;
+  }
+
+  .producto {
+    grid-column: 1 / -1;
+
+    @include respond-to("desde-medium") {
+      @include columnas(1, 6);
+
+      &:nth-child(2) {
+        @include columnas(7, 6);
+      }
+    }
+  }
+}
+
+
+// ===== Testimonio =====
+.testimonio {
+  padding-block: $esp-xl;
+  background-color: $color-fondo-testimonio;
+  text-align: center;
+
+  blockquote {
+    @include titular($fs-29, $fs-29, $fs-22);
+    max-width: 22em;
+    margin: $esp-xs auto $esp-s;
+  }
+
+  &__autor {
+    font-size: $fs-11;
+    font-weight: $peso-medium;
+  }
+
+  &__texto {
+    margin-top: $esp-xs;
+    font-size: $fs-10;
+    color: $color-texto-secundario;
+  }
+}
+

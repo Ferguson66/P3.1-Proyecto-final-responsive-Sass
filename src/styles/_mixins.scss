@@ -1,0 +1,92 @@
+@use "sass:map";
+@use "variables" as *;
+
+// ===== Gestor de media queries (mapa + mixin) =====
+$breakpoints: (
+  "small": (max-width: 767px),
+  "medium": (min-width: 768px, max-width: 1023px),
+  "large": (min-width: 1024px),
+  "desde-medium": (min-width: 768px),
+  "hasta-medium": (max-width: 1023px),
+);
+
+@mixin respond-to($breakpoint) {
+  $raw-query: map.get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: "";
+    @each $prop, $value in $raw-query {
+      @if $query == "" {
+        $query: "(#{$prop}: #{$value})";
+      } @else {
+        $query: "#{$query} and (#{$prop}: #{$value})";
+      }
+    }
+
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error "No value found for `#{$breakpoint}`. Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+// ===== Mixins reutilizables =====
+@mixin boton($fondo, $texto) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $esp-l;
+  min-height: $altura-boton;
+  padding: 0 $espacio-interior-boton;
+  background-color: $fondo;
+  color: $texto;
+  border-radius: $radio-suave;
+  font-size: $fs-14;
+  font-weight: $peso-regular;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba($foto-verde-profundo, 0.18);
+  }
+}
+
+@mixin titular($tamano, $tamano-medium: $tamano, $tamano-movil: $tamano-medium) {
+  font-family: $fuente-titulares;
+  font-weight: $peso-regular;
+  line-height: 1.1;
+  font-size: $tamano;
+
+  @include respond-to("medium") {
+    font-size: $tamano-medium;
+  }
+  @include respond-to("small") {
+    font-size: $tamano-movil;
+  }
+}
+
+@mixin etiqueta($color: $color-texto-acento) {
+  font-size: $fs-10;
+  font-weight: $peso-medium;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $color;
+}
+
+@mixin rejilla {
+  display: grid;
+  grid-template-columns: repeat($rejilla-columnas, 1fr);
+  column-gap: $rejilla-canal;
+
+  @include respond-to("small") {
+    grid-template-columns: repeat($movil-columnas, 1fr);
+    column-gap: $movil-canal;
+  }
+}
+
+// Coloca un elemento en la rejilla: columnas(inicio, ancho)
+@mixin columnas($inicio, $ancho) {
+  grid-column: #{$inicio} / span #{$ancho};
+}

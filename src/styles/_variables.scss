@@ -1,1 +1,115 @@
-$color-background: #f0f0f0;
+// ===== Variables exportadas de Figma (Noma) =====
+
+// --- Paleta ---
+$neutro-crema: #f7f5ef;
+$neutro-borde: #d9ddd4;
+$neutro-arena: #ece9df;
+$neutro-blanco: #ffffff;
+$neutro-marfil: #fdfcf8;
+$verde-bosque: #233f34;
+$verde-gris: #647067;
+$verde-salvia-claro: #ebeee7;
+$verde-niebla: #e3e8dc;
+$verde-borde-inverso: #5a7164;
+$verde-salvia: #cad4c7;
+$verde-borde-campo: #ccd2c7;
+$verde-marcador: #778178;
+$tierra-terracota: #ac4d32;
+$tierra-melocoton: #e8b88d;
+$madera-roble-claro: #c7b493;
+$madera-roble-oscuro: #877452;
+$tejido-lino: #e6dfd1;
+$foto-verde-profundo: #142b22;
+
+// --- Colores semánticos ---
+$color-fondo-pagina: $neutro-crema;
+$color-fondo-oscuro: $verde-bosque;
+$color-fondo-ventajas: $verde-salvia-claro;
+$color-fondo-testimonio: $neutro-arena;
+$color-texto-inverso: $neutro-crema;
+$color-texto-principal: $verde-bosque;
+$color-texto-secundario: $verde-gris;
+$color-texto-acento: $tierra-terracota;
+$color-texto-inverso-suave: $verde-niebla;
+$color-texto-inverso-secundario: $verde-salvia;
+$color-texto-sobre-foto: $neutro-blanco;
+$color-boton-primario-fondo: $verde-bosque;
+$color-boton-primario-texto: $neutro-crema;
+$color-boton-acento-fondo: $tierra-melocoton;
+$color-boton-acento-texto: $verde-bosque;
+$color-borde-sutil: $neutro-borde;
+$color-borde-inverso: $verde-borde-inverso;
+$color-superficie-etiqueta: $neutro-crema;
+$color-campo-fondo: $neutro-marfil;
+$color-campo-borde: $verde-borde-campo;
+$color-campo-marcador: $verde-marcador;
+$velo-1: rgba($foto-verde-profundo, 0.05);
+$velo-2: rgba($foto-verde-profundo, 0.1);
+$velo-3: rgba($foto-verde-profundo, 0.9);
+
+// Mapa de acabados (se usa para generar las clases de los puntos de color)
+$acabados: (
+  "roble-claro": $madera-roble-claro,
+  "roble-oscuro": $madera-roble-oscuro,
+  "lino": $tejido-lino,
+);
+
+// --- Tipografía ---
+$fuente-texto: "DM Sans", sans-serif;
+$fuente-titulares: "DM Serif Display", serif;
+$peso-regular: 400;
+$peso-medium: 500;
+$peso-bold: 700;
+
+$fs-10: 0.625rem;
+$fs-11: 0.6875rem;
+$fs-12: 0.75rem;
+$fs-13: 0.8125rem;
+$fs-14: 0.875rem;
+$fs-15: 0.9375rem;
+$fs-16: 1rem;
+$fs-19: 1.1875rem;
+$fs-21: 1.3125rem;
+$fs-22: 1.375rem;
+$fs-29: 1.8125rem;
+$fs-32: 2rem;
+$fs-36: 2.25rem;
+$fs-40: 2.5rem;
+$fs-47: 2.9375rem;
+$fs-52: 3.25rem;
+$fs-55: 3.4375rem;
+$fs-60: 3.75rem;
+
+// --- Medidas ---
+$rejilla-columnas: 12;
+$rejilla-canal: 20px;
+$movil-columnas: 4;
+$movil-canal: 16px;
+$movil-margen: 24px;
+$contenedor-ancho: 1100px; // margen lateral de escritorio ≈ 170px a 1440px
+$radio-suave: 4px;
+$radio-editorial: 150px;
+$espacio-interior-boton: 22px;
+$altura-boton: 52px;
+$altura-campo: 56px;
+$altura-boton-acceso: 56px;
+$borde-divisor: 1px;
+$borde-fino: 1px;
+
+// --- Espaciados propios (estimados de las capturas) ---
+$esp-xs: 8px;
+$esp-s: 12px;
+$esp-m: 20px;
+$esp-l: 32px;
+$esp-xl: 48px;
+$esp-xxl: 72px;
+
+// Mapa de espaciados (genera las clases .mt-* y .mb-* en _layout.scss)
+$espacios: (
+  "xs": $esp-xs,
+  "s": $esp-s,
+  "m": $esp-m,
+  "l": $esp-l,
+  "xl": $esp-xl,
+  "xxl": $esp-xxl,
+);

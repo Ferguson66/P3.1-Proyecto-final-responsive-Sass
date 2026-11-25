@@ -1,0 +1,176 @@
+@use "globals" as *;
+
+// ===== Botones =====
+.boton {
+  @include boton($color-boton-primario-fondo, $color-boton-primario-texto);
+
+  &--acento {
+    @include boton($color-boton-acento-fondo, $color-boton-acento-texto);
+  }
+
+  &--compacto {
+    min-height: 40px;
+    gap: $esp-m;
+    padding: 0 $esp-m;
+  }
+
+  &--bloque {
+    display: flex;
+    width: 100%;
+    min-height: $altura-boton-acceso;
+    border: 0;
+    font-size: $fs-15;
+  }
+}
+
+// ===== Etiquetas y enlaces =====
+.etiqueta {
+  @include etiqueta;
+
+  &--inversa {
+    color: $color-texto-sobre-foto;
+  }
+}
+
+.enlace-flecha {
+  display: inline-flex;
+  gap: 0.35em;
+  font-weight: $peso-medium;
+  border-bottom: $borde-fino solid transparent;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: currentColor;
+  }
+}
+
+// ===== Logo =====
+.logo {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
+
+  &__nombre {
+    font-family: $fuente-titulares;
+    font-size: $fs-29;
+  }
+
+  &__lema {
+    margin-top: 4px;
+    font-size: $fs-10;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  &--grande .logo__nombre {
+    font-size: $fs-40;
+  }
+}
+
+// ===== Tarjeta de producto =====
+.producto {
+  &__figura {
+    position: relative;
+    overflow: hidden;
+    border-radius: $radio-suave;
+
+    img {
+      width: 100%;
+      aspect-ratio: 589 / 280;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  &:hover &__figura img {
+    transform: scale(1.04);
+  }
+
+  &__etiqueta {
+    position: absolute;
+    top: $esp-s;
+    left: $esp-s;
+    padding: 6px $esp-s;
+    background-color: $color-superficie-etiqueta;
+    font-size: $fs-10;
+    text-transform: uppercase;
+  }
+
+  &__cabecera {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: $esp-s;
+    font-size: $fs-19;
+  }
+
+  &__descripcion {
+    margin-top: 2px;
+    font-size: $fs-12;
+    color: $color-texto-secundario;
+  }
+
+  @include respond-to("small") {
+    &__cabecera {
+      font-size: $fs-16;
+    }
+  }
+}
+
+// Puntos de acabado: una clase por cada entrada del mapa $acabados
+.acabados {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: $esp-s;
+  font-size: $fs-10;
+  color: $color-texto-secundario;
+
+  &__total {
+    margin-left: 4px;
+  }
+}
+
+.acabado {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+
+  @each $nombre, $color in $acabados {
+    &--#{$nombre} {
+      background-color: $color;
+    }
+  }
+}
+
+// ===== Formulario =====
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: $esp-xs;
+
+  &__etiqueta {
+    font-size: $fs-12;
+    font-weight: $peso-medium;
+  }
+
+  &__entrada {
+    height: $altura-campo;
+    padding: 0 $esp-m;
+    background-color: $color-campo-fondo;
+    border: $borde-fino solid $color-campo-borde;
+    border-radius: $radio-suave;
+    font-size: $fs-14;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &::placeholder {
+      color: $color-campo-marcador;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-texto-principal;
+      box-shadow: 0 0 0 3px rgba($verde-bosque, 0.12);
+    }
+  }
+}

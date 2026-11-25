@@ -1,0 +1,95 @@
+@use "globals" as *;
+
+// ===== Estilos globales: html, body y reset =====
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background-color: $color-fondo-pagina;
+  color: $color-texto-principal;
+  font-family: $fuente-texto;
+  font-size: $fs-14;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid $color-texto-acento;
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+// ===== Contenedor =====
+.contenedor {
+  width: min(#{$contenedor-ancho}, calc(100% - #{2 * $movil-margen}));
+  margin-inline: auto;
+}
+
+// ===== Clases de espaciado (generadas desde el mapa $espacios) =====
+@each $nombre, $valor in $espacios {
+  .mt-#{$nombre} {
+    margin-top: $valor;
+  }
+  .mb-#{$nombre} {
+    margin-bottom: $valor;
+  }
+}

@@ -1,0 +1,57 @@
+@use "globals" as *;
+
+// ===== Aviso superior =====
+.aviso {
+  padding: 7px $movil-margen;
+  background-color: $color-fondo-oscuro;
+  color: $color-texto-inverso;
+  font-size: $fs-10;
+  text-align: center;
+}
+
+
+// ===== Cabecera =====
+.cabecera {
+  border-bottom: $borde-divisor solid $color-borde-sutil;
+
+  &__interior {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding-block: $esp-m;
+
+    > .boton {
+      justify-self: end;
+    }
+
+    @include respond-to("small") {
+      grid-template-columns: 1fr auto;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  gap: 72px;
+  font-size: $fs-12;
+
+  a {
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-texto-acento;
+    }
+  }
+
+  @include respond-to("small") {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: space-around;
+    gap: 0;
+    margin-top: $esp-m;
+    padding-block: $esp-s;
+    border-top: $borde-divisor solid $color-borde-sutil;
+  }
+}
+

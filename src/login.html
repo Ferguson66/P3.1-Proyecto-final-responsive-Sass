@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar sesión · Noma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+    <script type="module" src="./main.js"></script>
+  </head>
+  <body>
+    <div class="acceso">
+      <aside class="acceso__panel">
+        <img class="acceso__foto" src="./assets/login.jpg" alt="" />
+        <a class="logo logo--grande" href="index.html" aria-label="Noma, inicio"><span class="logo__nombre">noma.</span></a>
+        <div class="acceso__mensaje">
+          <p class="etiqueta etiqueta--inversa">Tu casa empieza contigo</p>
+          <h2>Tu rincón.<br />Tu manera de vivir.</h2>
+          <p>Piezas que eliges. Historias que haces tuyas.</p>
+        </div>
+      </aside>
+
+      <main class="acceso__columna">
+        <a class="acceso__volver" href="index.html">← Volver a la tienda</a>
+
+        <form class="acceso__formulario" action="index.html">
+          <p class="etiqueta">Tu espacio Noma</p>
+          <h1>Qué bien verte por aquí.</h1>
+          <p class="acceso__subtitulo">Entra y vuelve a lo que te inspira.</p>
+
+          <div class="campo">
+            <label class="campo__etiqueta" for="correo">Correo electrónico</label>
+            <input class="campo__entrada" id="correo" name="correo" type="email" placeholder="tu@email.com" autocomplete="email" />
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="clave">Contraseña</label>
+            <input class="campo__entrada" id="clave" name="clave" type="password" placeholder="Introduce tu contraseña" autocomplete="current-password" />
+          </div>
+
+          <button class="boton boton--bloque" type="submit">Iniciar sesión <span aria-hidden="true">↗</span></button>
+          <p class="acceso__nota">Acceso de demostración: continuar te lleva a la tienda.</p>
+
+          <div class="acceso__alternativa">
+            <p>¿Solo estás mirando?</p>
+            <a class="enlace-flecha" href="index.html">Volver a la tienda sin iniciar sesión ↗</a>
+          </div>
+        </form>
+
+        <p class="acceso__legal">© 2026 Noma · Hecho para sentirse en casa.</p>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,5 +1,3 @@
-@use "variables" as *;
-
-body{
-    background-color: $color-background; 
-}
+// Punto central: reenvía variables y mixins
+@forward "variables";
+@forward "mixins";
